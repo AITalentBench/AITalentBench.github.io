@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Job Details</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 针对 Job 页面新增的局部样式 */
+    .job-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .job-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .job-header h1 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+    .job-meta {
+      font-size: 1rem;
+      color: #555;
+    }
+    .job-section {
+      margin-bottom: 2rem;
+    }
+    .job-section h2 {
+      font-size: 1.8rem;
+      color: #1f2937;
+      margin-bottom: 0.75rem;
+    }
+    .job-section p,
+    .job-section ul {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .job-section ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+    .apply-btn {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      background-color: #3b82f6;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .apply-btn:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- 主体内容 -->
+  <main class="main-content">
+    <div class="job-container">
+      <!-- Job Header -->
+      <div class="job-header">
+        <h1 id="job-title">Loading Title...</h1>
+        <div class="job-meta" id="job-meta">Loading location and ID...</div>
+      </div>
+      
+      <!-- Job Description -->
+      <div class="job-section">
+        <h2>Job Description</h2>
+        <p id="job-description">Loading description...</p>
+      </div>
+      
+      <!-- Responsibilities -->
+      <div class="job-section">
+        <h2>Responsibilities</h2>
+        <ul id="job-responsibilities">
+          <!-- Will be populated dynamically -->
+        </ul>
+      </div>
+      
+      <!-- Qualifications -->
+      <div class="job-section">
+        <h2>Qualifications</h2>
+        <ul id="job-qualifications">
+          <!-- Will be populated dynamically -->
+        </ul>
+      </div>
+      
+      <!-- Benefits -->
+      <div class="job-section">
+        <h2>Benefits</h2>
+        <ul id="job-benefits">
+          <!-- Will be populated dynamically -->
+        </ul>
+      </div>
+      
+      <!-- Apply Button -->
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+  </main>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+
+  <!-- 动态加载职位信息的脚本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // 解析 URL 参数
+      const params = new URLSearchParams(window.location.search);
+      const companyId = params.get("companyId") || "";
+      const jobId = params.get("jobId") || "";
+
+      // 如果有传入 companyId 和 jobId，则动态加载相应 job_description.txt
+      if (companyId && jobId) {
+        const filePath = `/static/companies/${companyId}/jobs/${jobId}/job_description.txt`;
+        fetch(filePath)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Failed to load job description: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then(text => {
+            // 简易解析示例：根据关键字 Title、Location、Job Description、Responsibilities、Qualifications、Benefits 分段
+            const lines = text.split('\n').map(line => line.trim());
+            
+            // 定义存储变量
+            let jobTitle = "Job Title";
+            let jobMeta = "Location: ???";
+            let descriptionLines = [];
+            let responsibilitiesLines = [];
+            let qualificationsLines = [];
+            let benefitsLines = [];
+
+            // 当前正在解析哪个板块
+            let currentSection = null;
+
+            lines.forEach(line => {
+              if (/^title[:：]/i.test(line)) {
+                // Title：Senior Software Engineer
+                jobTitle = line.split(/[:：]/)[1]?.trim() || jobTitle;
+                currentSection = null; // reset
+              } 
+              else if (/^location[:：]/i.test(line)) {
+                // Location: New York, NY | Job ID: 210546035
+                jobMeta = line.split(/[:：]/)[1]?.trim() || jobMeta;
+                currentSection = null;
+              }
+              else if (/^job description[:：]/i.test(line)) {
+                currentSection = 'description';
+              }
+              else if (/^responsibilities[:：]/i.test(line)) {
+                currentSection = 'responsibilities';
+              }
+              else if (/^qualifications[:：]/i.test(line)) {
+                currentSection = 'qualifications';
+              }
+              else if (/^benefits[:：]/i.test(line)) {
+                currentSection = 'benefits';
+              }
+              else {
+                // 如果不是标记行，则附加到当前板块
+                if (currentSection === 'description') {
+                  descriptionLines.push(line);
+                } else if (currentSection === 'responsibilities') {
+                  responsibilitiesLines.push(line);
+                } else if (currentSection === 'qualifications') {
+                  qualificationsLines.push(line);
+                } else if (currentSection === 'benefits') {
+                  benefitsLines.push(line);
+                }
+              }
+            });
+
+            // 更新 DOM
+            document.getElementById("job-title").textContent = jobTitle;
+            document.getElementById("job-meta").textContent = jobMeta;
+
+            document.getElementById("job-description").textContent = descriptionLines.join('\n');
+
+            // 将 responsibilitiesLines / qualificationsLines / benefitsLines 逐行变成 <li>
+            const respUl = document.getElementById("job-responsibilities");
+            responsibilitiesLines.forEach(item => {
+              if (item) {
+                const li = document.createElement("li");
+                li.textContent = item;
+                respUl.appendChild(li);
+              }
+            });
+
+            const qualUl = document.getElementById("job-qualifications");
+            qualificationsLines.forEach(item => {
+              if (item) {
+                const li = document.createElement("li");
+                li.textContent = item;
+                qualUl.appendChild(li);
+              }
+            });
+
+            const beneUl = document.getElementById("job-benefits");
+            benefitsLines.forEach(item => {
+              if (item) {
+                const li = document.createElement("li");
+                li.textContent = item;
+                beneUl.appendChild(li);
+              }
+            });
+          })
+          .catch(error => {
+            console.error("Error loading job file:", error);
+            // 也可以设置页面默认文案
+          });
+      } else {
+        // 如果没传参，就可以显示默认文案
+        document.getElementById("job-title").textContent = "Unknown Job Title";
+        document.getElementById("job-meta").textContent = "Location: ??? | Job ID: ???";
+      }
+    });
+  </script>
+</body>
+</html>

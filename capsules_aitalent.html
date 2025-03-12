@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Capsules (AI Talent)</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 子导航栏样式 */
+    .sub-navbar {
+      background-color: #1f2937;
+      padding: 0.75rem 0;
+    }
+    .sub-navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .sub-navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .sub-navbar a:hover,
+    .sub-navbar a.active {
+      color: #e5e7eb;
+    }
+    /* Capsule 展示区域 */
+    .capsule-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .capsule-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .capsule-card {
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .capsule-card:hover {
+      transform: translateY(-5px);
+    }
+    .capsule-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    .capsule-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+    /* 隐藏 view */
+    .view.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- 子导航栏，用于切换不同 Capsule view -->
+  <nav class="sub-navbar">
+    <ul>
+      <li><a href="#" onclick="showView('training'); return false;" class="active">Training Capsule</a></li>
+      <li><a href="#" onclick="showView('open'); return false;">Open Challenges</a></li>
+      <li><a href="#" onclick="showView('job'); return false;">Job Capsules</a></li>
+    </ul>
+  </nav>
+  
+  <!-- View: Training Capsule -->
+  <div id="view-training" class="view">
+    <section class="capsule-section">
+      <h2>Training Capsule</h2>
+      <div class="card-container">
+        <!-- 示例 Capsule 卡片，点击后进入 capsule_detail.html -->
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=101" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Data Science Training</h3>
+            <img src="web_component/Capsule/Data_Science_Training.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>          
+        </a>
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=102" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Machine Learning Basics</h3>
+            <img src="web_component/Capsule/Machine_Learning_Basics.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+  
+  <!-- View: Open Challenges -->
+  <div id="view-open" class="view hidden">
+    <section class="capsule-section">
+      <h2>Open Challenges</h2>
+      <div class="card-container">
+        <!-- 示例 Capsule 卡片 -->
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=201" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Advanced AI Challenge</h3>
+            <img src="web_component/Capsule/Advanced_AI_Challenge.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=202" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Innovation in ML</h3>
+            <img src="web_component/Capsule/Innovation_in_ML.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+  
+  <!-- View: Job Capsules -->
+  <div id="view-job" class="view hidden">
+    <section class="capsule-section">
+      <h2>Job Capsules</h2>
+      <div class="card-container">
+        <!-- 示例 Capsule 卡片 -->
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=301" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Software Engineer Challenge</h3>
+            <img src="web_component/Capsule/Software_Engineer_Challenge.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=302" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Data Analyst Challenge</h3>
+            <img src="web_component/Capsule/Data_Analyst_Challenge.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+  
+  <!-- 调用全局 script.js 中的 showView() 方法（确保该函数已经定义） -->
+  <script src="script.js"></script>
+</body>
+</html>

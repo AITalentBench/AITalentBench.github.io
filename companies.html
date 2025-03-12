@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Companies</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 针对 Companies 页面新增的样式 */
+    .companies-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .company-card {
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .company-card:hover {
+      transform: translateY(-5px);
+    }
+    .company-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .company-card h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+      color: #1f2937;
+    }
+    .company-card p {
+      font-size: 0.9rem;
+      color: #555;
+      padding: 0 1rem;
+    }
+    /* 页面标题样式 */
+    .page-title {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 2rem;
+      color: #1f2937;
+    }
+    /* 移除链接默认样式 */
+    .company-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+  <!-- 主体内容 -->
+<main class="main-content">
+  <section class="content-area">
+    <h2 class="page-title">Companies Tailored for You</h2>
+    <div class="companies-container">
+      <!-- 第一个公司卡片，动态加载 JPMorgan 信息 -->
+      <a href="company_detail.html?id=JPMorgan" class="company-link">
+        <div class="company-card">
+          <img src="companies/JPMorgan/logo.svg" alt="J.P. Morgan Logo" style="height: 150px; object-fit: contain;">
+          <h3 id="company-name-JPMorgan">Loading...</h3>
+          <p id="company-description-JPMorgan">Loading description...</p>
+        </div>
+      </a>
+      <!-- 其他公司卡片保持原有示例内容 -->
+      <a href="company_detail.html?id=2" class="company-link">
+        <div class="company-card">
+          <img src="companies/Sequoia/logo.png" alt="Sequoia Capital Logo" style="height: 150px; object-fit: contain;">
+          <h3>Sequoia Capital</h3>
+          <p>Sequoia Capital is a renowned venture capital firm that invests in groundbreaking companies
+             across various sectors, helping visionary entrepreneurs build iconic businesses that shape
+              the future.</p>
+        </div>
+      </a>
+      <a href="company_detail.html?id=3" class="company-link">
+        <div class="company-card">
+          <img src="companies/AWS/logo.png" alt="Amazon Web Services Logo" style="height: 150px; object-fit: contain;">
+          <h3>Amazon Web Services</h3>
+          <p>Amazon Web Services (AWS) is a comprehensive and widely adopted cloud platform, offering
+             a wide range of services like computing power, storage, and databases, with a focus on 
+             scalability and flexibility.</p>
+        </div>
+      </a>
+      <!-- 根据需要添加更多的公司卡片 -->
+    </div>
+  </section>
+</main>
+
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+  
+  <!-- 动态加载 JPMorgan 信息的脚本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      fetch("companies/JPMorgan/description.txt")
+        .then(response => response.text())
+        .then(text => {
+          let name = "";
+          let introduction = "";
+          const lines = text.split('\n');
+          for (let line of lines) {
+            line = line.trim();
+            if(line.toLowerCase().startsWith("name:")){
+              name = line.substring(5).trim();
+            }
+            if(line.toLowerCase().startsWith("introduction:")){
+              introduction = line.substring(13).trim();
+            }
+          }
+          document.getElementById("company-name-JPMorgan").textContent = name || "J.P. Morgan";
+          document.getElementById("company-description-JPMorgan").textContent = introduction || "No description available.";
+        })
+        .catch(error => {
+          console.error("Error loading JPMorgan description:", error);
+          document.getElementById("company-name-JPMorgan").textContent = "J.P. Morgan";
+          document.getElementById("company-description-JPMorgan").textContent = "Failed to load description.";
+        });
+    });
+  </script>
+</body>
+</html>

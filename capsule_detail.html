@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AITalentBench - Capsule Detail</title>
+  <!-- 引入外部CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 如有需要，可在此添加 capsule_detail 页面专用的局部样式 */
+    .sub-navbar-detail {
+      background-color: #1f2937;
+      padding: 0.75rem 0;
+    }
+    .sub-navbar-detail ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .sub-navbar-detail a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .sub-navbar-detail a:hover,
+    .sub-navbar-detail a.active {
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 默认：AI talent 版本 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+  <!-- 下方子导航栏 -->
+  <nav id="sub-navbar" class="sub-navbar">
+    <ul>
+      <li><a href="#" onclick="showView('task'); return false;" class="active">Task</a></li>
+      <li><a href="#" onclick="showView('solution'); return false;">Solution</a></li>
+    </ul>
+  </nav>
+
+    
+  <!-- Hero区域：动态加载 Capsule 标题 -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1 id="capsule-title">Loading Capsule Title...</h1>
+      <p>AITalentBench: Your Job Search, Simplified.</p>
+      <a href="#registration" class="btn-primary" onclick="scrollToSection('registration')">Register Now</a>
+    </div>
+  </section>
+  
+  
+  <!-- View: Task（默认显示当前 Capsule 任务内容） -->
+  <div id="view-task" class="view">
+    <main class="main-content">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="#overview" onclick="scrollToSection('overview')">Overview</a></li>
+          <li><a href="#task" onclick="scrollToSection('task')">Task</a></li>
+          <li><a href="#key_dates" onclick="scrollToSection('key_dates')">Key Dates</a></li>
+          <li><a href="#registration" onclick="scrollToSection('registration')">Registration</a></li>
+          <li><a href="#prizes" onclick="scrollToSection('prizes')">Prizes</a></li>
+          <li><a href="#organizers" onclick="scrollToSection('organizers')">Organizers</a></li>
+          <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+          <li><a href="#acknowledgement" onclick="scrollToSection('acknowledgement')">Acknowledgement</a></li>
+          <li><a href="#evaluation_criteria" onclick="scrollToSection('evaluation_criteria')">Evaluation Criteria</a></li>
+          <li><a href="#references" onclick="scrollToSection('references')">References</a></li>
+          <li><a href="#terms_and_conditions" onclick="scrollToSection('terms_and_conditions')">Terms &amp; Conditions</a></li>
+          <li><a href="#honor_codes" onclick="scrollToSection('honor_codes')">Honor Codes</a></li>
+        </ul>
+      </aside>
+      <section class="content-area" id="my-capsule">
+        <article id="overview" class="content-section">
+          <h2>Overview</h2>
+          <p>This is the Overview section placeholder.</p>
+        </article>
+        <article id="task" class="content-section">
+          <h2>Task</h2>
+          <p>This is the Task section placeholder.</p>
+        </article>
+        <article id="key_dates" class="content-section">
+          <h2>Key Dates</h2>
+          <p>This is the Key Dates section placeholder.</p>
+        </article>
+        <article id="registration" class="content-section">
+          <h2>Registration</h2>
+          <p>This is the Registration section placeholder.</p>
+        </article>
+        <article id="prizes" class="content-section">
+          <h2>Prizes</h2>
+          <p>This is the Prizes section placeholder.</p>
+        </article>
+        <article id="organizers" class="content-section">
+          <h2>Organizers</h2>
+          <p>This is the Organizers section placeholder.</p>
+        </article>
+        <article id="contact" class="content-section">
+          <h2>Contact</h2>
+          <p>This is the Contact section placeholder.</p>
+        </article>
+        <article id="acknowledgement" class="content-section">
+          <h2>Acknowledgement</h2>
+          <p>This is the Acknowledgement section placeholder.</p>
+        </article>
+        <article id="evaluation_criteria" class="content-section">
+          <h2>Evaluation Criteria</h2>
+          <p>This is the Evaluation Criteria section placeholder.</p>
+        </article>
+        <article id="references" class="content-section">
+          <h2>References</h2>
+          <p>This is the References section placeholder.</p>
+        </article>
+        <article id="terms_and_conditions" class="content-section">
+          <h2>Terms &amp; Conditions</h2>
+          <p>This is the Terms &amp; Conditions section placeholder.</p>
+        </article>
+        <article id="honor_codes" class="content-section">
+          <h2>Honor Codes</h2>
+          <p>This is the Honor Codes section placeholder.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+  
+  <!-- View: Solution（初始隐藏） -->
+  <div id="view-solution" class="view hidden">
+    <!-- 示例 Solution 区域：你可以根据需求展示相关代码或说明 -->
+    <section class="hero">
+      <div class="solution-banner">
+        <h1>Capsule Solution</h1>
+        <p>This is the Capsule Solution section. Here you can display sample solution code or documentation regarding the capsule.</p>
+      </div>
+    </section>
+    <main class="main-content">
+      <section class="content-area" style="padding: 2rem;">
+        <article class="content-section" style="max-width: 800px; margin: 0 auto;">
+          <h2>Solution Code</h2>
+          <pre id="code-example" style="background: #f3f3f3; padding: 1rem; border-radius: 4px; overflow-x: auto;">Sure! Here is a Python script that demonstrates how to construct a generative model to simulate fake time series data for the given capsule problem:
+
+            ```python
+            # Required Libraries
+            import numpy as np
+            import pandas as pd
+            from sklearn.preprocessing import StandardScaler
+            from sklearn.model_selection import train_test_split
+            from sklearn.ensemble import RandomForestRegressor
+            from sklearn.metrics import mean_absolute_error
+            
+            # Generate Fake Time Series Data
+            def generate_fake_time_series(num_samples, num_features):
+                fake_data = np.random.rand(num_samples, num_features)
+                return fake_data
+            
+            # Load and Preprocess Real Data
+            def load_real_data(file_path):
+                real_data = pd.read_csv(file_path)
+                # Preprocessing steps if needed
+                return real_data
+            
+            # Evaluate Model Performance
+            def evaluate_model_performance(real_data, fake_data):
+                scaler = StandardScaler()
+                X_real = scaler.fit_transform(real_data)
+                X_fake = scaler.transform(fake_data)
+            
+                X_train, X_test, y_train, y_test = train_test_split(X_real, X_fake, test_size=0.2, random_state=42)
+            
+                # Train a regression model
+                model = RandomForestRegressor()
+                model.fit(X_train, y_train)
+                y_pred = model.predict(X_test)
+            
+                mae = mean_absolute_error(y_test, y_pred)
+                return mae
+            
+            # Main function
+            def main():
+                # Generate fake time series data
+                num_samples = 1000
+                num_features = 10
+                fake_data = generate_fake_time_series(num_samples, num_features)
+            
+                # Load real data
+                real_data_path = "path/to/real_data.csv"
+                real_data = load_real_data(real_data_path)
+            
+                # Evaluate model performance
+                mae = evaluate_model_performance(real_data, fake_data)
+                print(f"Mean Absolute Error: {mae}")
+            
+            if __name__ == "__main__":
+                main()
+            ```
+            
+            This script outlines the process of generating fake time series data, loading and preprocessing real data, and evaluating the model performance using a random forest regressor. You can further enhance the script by incorporating advanced generative models like GANs, VAEs, or LSTM models as mentioned in the capsule information.</pre>
+          </pre>
+        </article>
+      </section>
+    </main>
+  </div>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+  
+  <!-- 根据 URL 参数调整导航栏版本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      const params = new URLSearchParams(window.location.search);
+      const role = params.get("role") || "aitalent";
+      if (role === "company") {
+        const navbarLeft = document.querySelector(".navbar-left");
+        const navbarRight = document.querySelector(".navbar-right");
+        if (navbarLeft && navbarRight) {
+          navbarLeft.innerHTML = `
+            <li style="margin-right: 1rem;"><a href="company_portal.html">My Company</a></li>
+            <li style="margin-right: 1rem;"><a href="capsules_company.html">My Capsule</a></li>
+            <li style="margin-right: 1rem;"><a href="post_job.html">Post Job</a></li>
+          `;
+          navbarRight.innerHTML = `
+            <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+            <li style="margin-left: 1rem;"><a href="index.html">AITalent</a></li>
+          `;
+        }
+      }
+    });
+  </script>
+  
+  <!-- 动态加载 Capsule 信息的脚本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // 解析 URL 参数，获取 companyId 和 capsuleId
+      const params = new URLSearchParams(window.location.search);
+      const companyId = params.get("companyId") || "";
+      const capsuleId = params.get("capsuleId") || "";
+      
+      if (companyId && capsuleId) {
+        // 动态加载 Capsule 的标题（从 title.txt）
+        fetch("/static/companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
+          .then(response => response.text())
+          .then(text => {
+            document.getElementById("capsule-title").textContent = text.trim() || "Capsule Title";
+          })
+          .catch(error => {
+            console.error("Error loading capsule title:", error);
+            document.getElementById("capsule-title").textContent = "Capsule Title";
+          });
+      } else {
+        document.getElementById("capsule-title").textContent = "Capsule Title";
+      }
+    });
+  </script>
+  
+  <!-- 引入外部JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

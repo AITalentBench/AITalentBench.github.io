@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Company Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 针对 company_portal.html 页面新增的局部样式 */
+    .company-info-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .company-info-container img {
+      max-width: 200px;
+      height: auto;
+      margin: 1rem auto;
+      display: block;
+    }
+    .company-info-container h1 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+    .company-info-container p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="company_portal.html">My Company</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_company.html">My Capsule</a></li>
+          <li style="margin-right: 1rem;"><a href="post_job.html">Post Job</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_generation.html">Create Capsule</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="index.html">AITalent</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- 主体内容 -->
+  <main class="main-content">
+    <section class="company-info-container">
+      <!-- 这里可以通过动态加载更新企业信息 -->
+      <img src="companies/JPMorgan/logo.svg" alt="Company Logo">
+      <h1 id="company-name">J.P. Morgan</h1>
+      <p id="company-description">
+        J.P. Morgan is a leading global financial services firm with assets of $3.9 trillion and operations worldwide.
+        The firm serves millions of customers, clients, and communities in over 100 global markets with more than 300,000 employees.
+      </p>
+    </section>
+  </main>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>

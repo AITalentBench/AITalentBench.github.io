@@ -1,0 +1,3 @@
+We strongly encourage all participants to compete with integrity and avoid any dishonest practices. Leveraging information outside the provided dataset or manipulating the competition infrastructure for an edge is prohibited.
+
+Please note that the organiser reserves the right, but does not have the obligation, to review the submitted code to disqualify any contributions demonstrating evidence of cheating. We respectfully request that you refrain from any cheating.

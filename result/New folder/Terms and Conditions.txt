@@ -1,0 +1,4 @@
+The maximum number of trials of one team is 10 per day in the development and test phase.
+The maximum number of team members is 5 per team. Double registration is not allowed. We expect teams to self-certify that all team members are not part of a different team registered for the competition, and we will actively monitor for violation of this rule.
+Method designed for this competition must run in at most V100 GPU with 16GB memory.
+To be eligible for prizes and named as a winning team, top-ranking teams are required to share their methods, code, and models with the organizers at a minimum, though public releases are highly encouraged.

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Candidate Detail</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 针对 Candidate Detail 页面新增的局部样式 */
+    .candidate-container {
+      display: flex;
+      width: 90%;
+      margin: 2rem auto;
+      gap: 2rem;
+    }
+    /* 左侧候选人信息栏 */
+    .candidate-sidebar {
+      flex: 0 0 220px;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 4px;
+      position: sticky;
+      top: 80px; /* 与导航栏高度配合 */
+      align-self: start;
+    }
+    .candidate-sidebar h2 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      color: #1f2937;
+    }
+    .candidate-info {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #555;
+    }
+    .candidate-info strong {
+      color: #333;
+    }
+    /* 右侧主要内容区域 */
+    .candidate-content {
+      flex: 1;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+    .candidate-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+    .candidate-content .skill-list {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    /* Radar 图表的占位 */
+    .radar-chart {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .radar-chart img {
+      max-width: 300px;
+      height: auto;
+    }
+    /* 近期活动表格 */
+    .recent-activity table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    .recent-activity th,
+    .recent-activity td {
+      border: 1px solid #e5e7eb;
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .recent-activity th {
+      background-color: #f3f4f6;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html"><img src="static/web_component/mxmlogo.png" alt="AITalentBench Logo"></a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- 主体内容：候选人详情 -->
+  <main class="candidate-container">
+    <!-- 左侧导航/信息栏 -->
+    <aside class="candidate-sidebar">
+      <h2>Candidate</h2>
+      <div class="candidate-info">
+        <strong>Name:</strong> John Doe<br>
+        <strong>Email:</strong> john.doe@example.com<br>
+        <strong>Affiliation:</strong> Durham University<br>
+        <strong>Registered since:</strong> Jan 2025
+      </div>
+    </aside>
+
+    <!-- 右侧主要内容 -->
+    <section class="candidate-content">
+      <!-- Skillset 区域 -->
+      <article>
+        <h2>Skillset</h2>
+        <ul class="skill-list">
+          <li>Python, C++</li>
+          <li>Word, Excel</li>
+          <li>Certificates</li>
+        </ul>
+      </article>
+      
+      <!-- Radar / Spider 图表区域（示例占位） -->
+      <article class="radar-chart">
+        <img src="https://via.placeholder.com/300x300?text=Radar+Chart" alt="Radar Chart">
+      </article>
+      
+      <!-- Recent Activity 区域 -->
+      <article class="recent-activity">
+        <h2>Recent Activity</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Capsule name</th>
+              <th>Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Capsule 1</td>
+              <td>1/50</td>
+            </tr>
+            <tr>
+              <td>Capsule 2</td>
+              <td>8/32</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      
+      <!-- Experience 区域 -->
+      <article>
+        <h2>Experience</h2>
+        <p>Here you can list the candidate's previous work experience, education, or other relevant information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in urna sit amet eros molestie ultricies.</p>
+      </article>
+    </section>
+  </main>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Home</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Home Page 专用局部样式 */
+    .hero-home {
+        background: url('web_component/hero_bg.webp') center center/cover no-repeat;
+
+    }
+
+    .hero-home .hero-overlay {
+      background: url('web_component/hero_bg.webp') center center/cover no-repeat;
+
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero-home h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-home p {
+      font-size: 1.25rem;
+    }
+    .section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+    .data-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .data-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      min-width: 150px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .data-card h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #3b82f6;
+    }
+    .partners {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .partners img {
+      max-width: 150px;
+      object-fit: contain;
+    }
+    .press-release, .workflow-video {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .press-release h3, .workflow-video h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+    .press-release p, .workflow-video p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .workflow-video iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏（采用统一更新后的导航栏） -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero区域：品牌标识与口号 -->
+  <section class="hero-home">
+    <div class="hero-overlay">
+      <h1>AITalentBench</h1>
+      <p>Empowering Companies to Bridge the 97M AI Talent Gap.</p>
+    </div>
+  </section>
+  
+  <!-- 核心价值与产品介绍 -->
+  <section class="section" id="introduction">
+    <h2>About AITalentBench</h2>
+    <p>
+        An AI platform matching, training, and hiring AI talents through real-world AI skill simulations.<br>
+        Our innovative CAPSULE simulator evaluates candidates on practical problem-solving, <br>
+        providing data-driven recruitment recommendations.
+      </p>
+</section>
+  
+  <!-- 关键数据与成就展示 -->
+  <section class="section" id="achievements">
+    <h2>Our Impact</h2>
+    <div class="data-cards">
+      <div class="data-card">
+        <h3>10K+</h3>
+        <p>Capsules Generated</p>
+      </div>
+      <div class="data-card">
+        <h3>50K+</h3>
+        <p>Candidates Hired</p>
+      </div>
+      <div class="data-card">
+        <h3>5K+</h3>
+        <p>Trainings Completed</p>
+      </div>
+      <div class="data-card">
+        <h3>100+</h3>
+        <p>Partner Companies</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 合作伙伴与推荐 -->
+  <section class="section" id="partners">
+    <h2>Our Partners & Testimonials</h2>
+    <div class="partners">
+        <img src="web_component/ucl-logo.png" alt="UCL Logo" style="height: 100px; object-fit: contain;">
+        <img src="web_component/durham_logo.svg" alt="Durham Logo" style="height: 100px; object-fit: contain;">
+        <img src="web_component/Sequoia_Capital_logo.png" alt="Sequoia Capital Logo" style="height: 100px; object-fit: contain;">
+        <img src="web_component/aws_logo.png" alt="AWS Logo" style="height: 100px; object-fit: contain;">
+    </div>      
+    <p style="margin-top: 1rem; font-size: 1rem; color: #555;">
+      "AITalentBench’s CAPSULE Simulator has revolutionized our recruitment process." – MD, Leading Investment Bank
+    </p>
+  </section>
+  
+  <!-- 新闻动态 / Press Release 区块 -->
+  <section class="section" id="news">
+    <h2>Latest News</h2>
+    <div class="press-release">
+      <h3>AITalentBench Platform Launch</h3>
+      <p>
+        LONDON, June 2025 – MxM Innovations Ltd announced the launch of the AITalentBench Platform, a revolutionary cloud-based solution designed to transform AI talent recruitment through project-based skill assessments.
+      </p>
+    </div>
+  </section>
+  
+  <!-- 平台工作流程视频或动画 -->
+  <section class="section" id="workflow">
+    <h2>How It Works</h2>
+    <div class="workflow-video">
+      <video controls width="100%">
+        <source src="web_component/introduction_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p style="margin-top: 1rem; font-size: 1rem; color: #555;">
+        Watch how our CAPSULE simulator transforms the hiring process by evaluating real-world AI skills.
+      </p>
+    </div>
+  </section>
+  
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>

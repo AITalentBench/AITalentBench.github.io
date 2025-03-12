@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Company Detail</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 针对 Company Detail 页面新增的局部样式 */
+    .company-detail-container {
+      padding: 2rem;
+    }
+    .company-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .company-header h1 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+    .company-header p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+    .company-logo {
+      display: block;
+      max-width: 200px;
+      margin: 1rem auto;
+    }
+    .section-title {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      font-size: 2rem;
+      color: #1f2937;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+    /* 统一使用类似于 pricing-card 的样式 */
+    .job-card,
+    .capsule-card {
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .job-card:hover,
+    .capsule-card:hover {
+      transform: translateY(-5px);
+    }
+    .job-card img,
+    .capsule-card img {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 1rem;
+    }
+    .job-card h3,
+    .capsule-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+    /* 移除链接默认样式 */
+    .job-link,
+    .capsule-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- 主体内容 -->
+  <main class="main-content">
+    <section class="content-area company-detail-container">
+      <!-- Company Header（动态加载） -->
+      <div class="company-header">
+        <h1 id="company-name">Loading...</h1>
+        <p id="company-description">Loading company profile...</p>
+        <img id="company-logo" class="company-logo" src="" alt="Company Logo">
+      </div>
+      
+      <!-- Open Positions 区域 -->
+      <div class="open-positions">
+        <h2 class="section-title">Open Positions</h2>
+        <div class="card-container">
+          <!-- 第一项：Job 1（访问文件夹1） -->
+          <a href="job.html?companyId=JPMorgan&jobId=1" class="job-link" id="job-link-1">
+            <div class="job-card">
+              <h3 id="job-title-1">Loading Job Title...</h3>
+              <img id="job-image-1" src="" alt="Job Image">
+            </div>
+          </a>
+          <!-- 第二项：Job 2（访问文件夹2） -->
+          <a href="job.html?companyId=JPMorgan&jobId=2" class="job-link" id="job-link-2">
+            <div class="job-card">
+              <h3 id="job-title-2">Loading Job Title...</h3>
+              <img id="job-image-2" src="" alt="Job Image">
+            </div>
+          </a>
+          <!-- 第三项：Job 3（访问文件夹3） -->
+          <a href="job.html?companyId=JPMorgan&jobId=3" class="job-link" id="job-link-3">
+            <div class="job-card">
+              <h3 id="job-title-3">Loading Job Title...</h3>
+              <img id="job-image-3" src="" alt="Job Image">
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Open Capsules 区域 -->
+      <div class="open-capsules">
+        <h2 class="section-title">Open Capsules</h2>
+        <div class="card-container">
+          <!-- 第一个 Capsule 卡片：动态加载（访问文件夹1） -->
+          <a href="#" class="capsule-link" id="capsule-link-1">
+            <div class="capsule-card">
+              <h3 id="capsule-title-1">Loading Capsule Title...</h3>
+              <img id="capsule-image-1" src="" alt="Capsule Image">
+            </div>
+          </a>
+          <!-- 第二个 Capsule 卡片：动态加载（访问文件夹2） -->
+          <a href="#" class="capsule-link" id="capsule-link-2">
+            <div class="capsule-card">
+              <h3 id="capsule-title-2">Loading Capsule Title...</h3>
+              <img id="capsule-image-2" src="" alt="Capsule Image">
+            </div>
+          </a>
+          <!-- 第三个 Capsule 卡片：动态加载（访问文件夹3） -->
+          <a href="#" class="capsule-link" id="capsule-link-3">
+            <div class="capsule-card">
+              <h3 id="capsule-title-3">Loading Capsule Title...</h3>
+              <img id="capsule-image-3" src="" alt="Capsule Image">
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+  
+  <!-- 动态加载公司信息与 Job/Capsule 信息的脚本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // 解析 URL 参数，获取 company id，同时检测 "id" 或 "companyId"
+      const params = new URLSearchParams(window.location.search);
+      const companyId = params.get("id") || params.get("companyId") || "";
+      
+      if(companyId) {
+        // 更新公司 logo 和描述
+        document.getElementById("company-logo").src = "../companies/" + companyId + "/logo.svg";
+        fetch("companies/" + companyId + "/description.txt")
+          .then(response => response.text())
+          .then(text => {
+            let name = "";
+            let introduction = "";
+            const lines = text.split('\n');
+            lines.forEach(line => {
+              line = line.trim();
+              if(line.toLowerCase().startsWith("name:")){
+                name = line.substring(5).trim();
+              }
+              if(line.toLowerCase().startsWith("introduction:")){
+                introduction = line.substring(13).trim();
+              }
+            });
+            document.getElementById("company-name").textContent = name || "Company Name";
+            document.getElementById("company-description").textContent = introduction || "No description available.";
+          })
+          .catch(error => {
+            console.error("Error loading company description:", error);
+            document.getElementById("company-name").textContent = "Company Name";
+            document.getElementById("company-description").textContent = "Failed to load description.";
+          });
+          
+        // 定义函数加载指定 job 的信息
+        function loadJobInfo(jobId) {
+          const jobImageElem = document.getElementById("job-image-" + jobId);
+          const jobTitleElem = document.getElementById("job-title-" + jobId);
+          const jobLinkElem  = document.getElementById("job-link-" + jobId);
+          
+          jobImageElem.src = "/static/companies/" + companyId + "/jobs/" + jobId + "/head.webp";
+          jobLinkElem.href = "job.html?companyId=" + companyId + "&jobId=" + jobId;
+          
+          fetch("/static/companies/" + companyId + "/jobs/" + jobId + "/job_description.txt")
+            .then(response => response.text())
+            .then(jobText => {
+              const lines2 = jobText.split('\n');
+              let jobTitle = "Job Title";
+              lines2.forEach(line => {
+                line = line.trim();
+                if(line.toLowerCase().startsWith("title")) {
+                  jobTitle = line.split("：")[1]?.trim() || "Job Title";
+                }
+              });
+              jobTitleElem.textContent = jobTitle;
+            })
+            .catch(err => {
+              console.error("Error loading job description for job " + jobId + ":", err);
+              jobTitleElem.textContent = "Job Title";
+            });
+        }
+        
+        // 分别加载 job 1, job 2, job 3
+        loadJobInfo(1);
+        loadJobInfo(2);
+        loadJobInfo(3);
+        
+        // 定义函数：加载指定 capsule 的信息
+        function loadCapsuleInfo(capsuleId) {
+          const capsuleImageElem = document.getElementById("capsule-image-" + capsuleId);
+          const capsuleTitleElem = document.getElementById("capsule-title-" + capsuleId);
+          const capsuleLinkElem  = document.getElementById("capsule-link-" + capsuleId);
+          
+          capsuleImageElem.src = "/static/companies/" + companyId + "/capsules/" + capsuleId + "/head.webp";
+          capsuleLinkElem.href = "capsule_detail.html?companyId=" + companyId + "&capsuleId=" + capsuleId;
+          
+          fetch("/static/companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
+            .then(response => response.text())
+            .then(text => {
+              capsuleTitleElem.textContent = text.trim() || "Capsule Title";
+            })
+            .catch(err => {
+              console.error("Error loading capsule title for capsule " + capsuleId + ":", err);
+              capsuleTitleElem.textContent = "Capsule Title";
+            });
+        }
+        
+        // 分别加载 capsule 1, capsule 2, capsule 3
+        loadCapsuleInfo(1);
+        loadCapsuleInfo(2);
+        loadCapsuleInfo(3);
+      } else {
+        // 无传参时设置默认值
+        document.getElementById("company-name").textContent = "Company Name";
+        document.getElementById("company-description").textContent = "Default company profile.";
+      }
+    });
+  </script>
+  
+  <!-- 引入外部JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AITalentBench Portal</title>
+  <!-- 引入外部CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="company_portal.html">My Company</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_company.html">My Capsule</a></li>
+          <li style="margin-right: 1rem;"><a href="post_job.html">Post Job</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_generation.html">Create Capsule</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="index.html">AITalent</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  
+  <!-- 下方子导航栏：固定显示在 Capsule 页面 -->
+  <nav id="sub-navbar" class="sub-navbar">
+    <ul>
+      <!-- 已删除 Capsule List 链接 -->
+      <li><a href="#" onclick="showView('generate')">Job Description</a></li>
+      <li><a href="#" onclick="showView('index')">Task Preview</a></li>
+      <li><a href="#" onclick="showView('code')">Solution Preview</a></li>
+    </ul>
+  </nav>
+  
+  <!-- 已删除 Capsule List 视图 -->
+  <!-- View: My Capsule -->
+  <div id="view-index" class="view hidden">
+    <!-- Hero区域 -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1 id="capsule-title">Capsule Name or Theme</h1>
+        <p>AITalentBench: Your Job Search, Simplified.</p>
+      </div>
+    </section>
+    <!-- 主内容：侧边栏和各模块 -->
+    <main class="main-content">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="#overview" onclick="scrollToSection('overview')">Overview</a></li>
+          <li><a href="#task" onclick="scrollToSection('task')">Task</a></li>
+          <li><a href="#key_dates" onclick="scrollToSection('key_dates')">Key Dates</a></li>
+          <li><a href="#registration" onclick="scrollToSection('registration')">Registration</a></li>
+          <li><a href="#prizes" onclick="scrollToSection('prizes')">Prizes</a></li>
+          <li><a href="#organizers" onclick="scrollToSection('organizers')">Organizers</a></li>
+          <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+          <li><a href="#acknowledgement" onclick="scrollToSection('acknowledgement')">Acknowledgement</a></li>
+          <li><a href="#evaluation_criteria" onclick="scrollToSection('evaluation_criteria')">Evaluation Criteria</a></li>
+          <li><a href="#references" onclick="scrollToSection('references')">References</a></li>
+          <li><a href="#terms_and_conditions" onclick="scrollToSection('terms_and_conditions')">Terms &amp; Conditions</a></li>
+          <li><a href="#honor_codes" onclick="scrollToSection('honor_codes')">Honor Codes</a></li>
+        </ul>
+      </aside>
+      <section class="content-area">
+        <article id="overview" class="content-section">
+          <h2>Overview</h2>
+          <p>This is the Overview section placeholder.</p>
+        </article>
+        <article id="task" class="content-section">
+          <h2>Task</h2>
+          <p>This is the Task section placeholder.</p>
+        </article>
+        <article id="key_dates" class="content-section">
+          <h2>Key Dates</h2>
+          <p>This is the Key Dates section placeholder.</p>
+        </article>
+        <article id="registration" class="content-section">
+          <h2>Registration</h2>
+          <p>This is the Registration section placeholder.</p>
+        </article>
+        <article id="prizes" class="content-section">
+          <h2>Prizes</h2>
+          <p>This is the Prizes section placeholder.</p>
+        </article>
+        <article id="organizers" class="content-section">
+          <h2>Organizers</h2>
+          <p>This is the Organizers section placeholder.</p>
+        </article>
+        <article id="contact" class="content-section">
+          <h2>Contact</h2>
+          <p>This is the Contact section placeholder.</p>
+        </article>
+        <article id="acknowledgement" class="content-section">
+          <h2>Acknowledgement</h2>
+          <p>This is the Acknowledgement section placeholder.</p>
+        </article>
+        <article id="evaluation_criteria" class="content-section">
+          <h2>Evaluation Criteria</h2>
+          <p>This is the Evaluation Criteria section placeholder.</p>
+        </article>
+        <article id="references" class="content-section">
+          <h2>References</h2>
+          <p>This is the References section placeholder.</p>
+        </article>
+        <article id="terms_and_conditions" class="content-section">
+          <h2>Terms &amp; Conditions</h2>
+          <p>This is the Terms &amp; Conditions section placeholder.</p>
+        </article>
+        <article id="honor_codes" class="content-section">
+          <h2>Honor Codes</h2>
+          <p>This is the Honor Codes section placeholder.</p>
+        </article>
+      </section>
+    </main>
+    <!-- 生成代码按钮 -->
+    <div style="text-align: center; margin: 2rem;">
+      <button type="button" class="btn-primary" onclick="handleGenerateCode()">Generate code and solution</button>
+      <p id="code-loading-message" style="display:none;">Generating solution code, please wait...</p>
+    </div>
+  </div>
+  
+  <!-- View: Create Capsule -->
+  <div id="view-generate" class="view">
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1>Create Capsule</h1>
+        <p>Simplify your hiring process—generate the latest capsule content and connect with top talent for your company.</p>
+      </div>
+    </section>
+    <main class="main-content">
+      <section class="content-area" style="padding: 2rem;">
+        <article class="content-section">
+          <div class="input-container">
+            <p>Enter your organization/company information:</p>
+            <textarea id="company-info-generate" class="large-textarea" placeholder="Enter organization/company info..."></textarea>
+          </div>
+          <button type="button" class="btn-primary" onclick="handleGenerate()">Generate</button>
+          <p id="loading-message-generate" style="display:none;">Generating content, please wait...</p>
+        </article>
+      </section>
+    </main>
+  </div>
+  
+  <!-- View: Capsule Solution -->
+  <div id="view-code" class="view hidden">
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1>Capsule Solution</h1>
+        <p>Sample code or documentation regarding the capsule.</p>
+      </div>
+    </section>
+    <main class="main-content">
+      <section class="content-area" style="padding: 2rem;">
+        <article class="content-section" style="max-width: 800px; margin: 0 auto;">
+          <h2>Code</h2>
+          <pre id="code-example" style="background: #f3f3f3; padding: 1rem; border-radius: 4px; overflow-x: auto;">Loading code...</pre>
+        </article>
+      </section>
+    </main>
+  </div>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+  
+  <!-- 引入外部JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

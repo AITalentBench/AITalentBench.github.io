@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AITalentBench Portal</title>
+  <!-- 引入外部CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Capsule List 区域样式 */
+    .capsule-list-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .capsule-list-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .capsule-card {
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .capsule-card:hover {
+      transform: translateY(-5px);
+    }
+    .capsule-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    .capsule-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="company_portal.html">My Company</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_company.html">My Capsule</a></li>
+          <li style="margin-right: 1rem;"><a href="post_job.html">Post Job</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_generation.html">Create Capsule</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="index.html">AITalent</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- 删除了子导航栏，仅保留 Capsule List 展示内容 -->
+  <div id="view-list" class="view"> 
+    <section class="capsule-list-section">
+      <h2>Capsule List</h2>
+      <div class="card-container">
+        <!-- 示例 Capsule 卡片 -->
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=101&role=company" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Data Science Training</h3>
+            <img src="web_component/Capsule/Data_Science_Training.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+        <a href="capsule_detail.html?companyId=JPMorgan&capsuleId=102&role=company" class="capsule-link">
+          <div class="capsule-card">
+            <h3>Machine Learning Basics</h3>
+            <img src="web_component/Capsule/Machine_Learning_Basics.webp" alt="Training Capsule" style="width:200px; height:auto;">
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+  
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+  
+  <!-- 引入外部JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

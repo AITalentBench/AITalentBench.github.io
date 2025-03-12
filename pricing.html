@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITalentBench - Pricing</title>
+  <!-- 引入全局样式 -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* 针对 Pricing 页面新增的样式 */
+    .pricing-hero {
+      background: url('web_component/price_hero_bg.webp') center center/cover no-repeat;
+      position: relative;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pricing-hero .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+      color: #fff;
+    }
+    .pricing-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .pricing-hero p {
+      font-size: 1.2rem;
+    }
+    .pricing-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .pricing-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+    .pricing-section p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+    .pricing-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+    .pricing-card {
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+    }
+    .pricing-card .price {
+      font-size: 2rem;
+      color: #3b82f6;
+      margin-bottom: 1rem;
+    }
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .pricing-card ul li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .pricing-card .btn {
+      background-color: #3b82f6;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .pricing-card .btn:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- 公共导航栏 -->
+  <header class="navbar">
+    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="navbar-brand">
+        <a href="index.html">AITalentBench</a>
+      </div>
+      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+        <!-- 左侧菜单 -->
+        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+        </ul>
+        <!-- 右侧菜单 -->
+        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+          <li style="margin-left: 1rem;"><a href="login.html">Log in</a></li>
+          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 定价页 Hero 区域 -->
+  <section class="pricing-hero">
+    <div class="hero-overlay">
+      <h1>Pricing</h1>
+      <p>Choose a plan that fits your needs.</p>
+    </div>
+  </section>
+
+  <!-- 定价内容 -->
+  <section class="pricing-section">
+    <h2>Our Plans</h2>
+    <p>We offer flexible pricing plans to suit your needs. Upgrade your account and unlock premium features.</p>
+    <div class="pricing-container">
+      <!-- 免费计划 -->
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price">$0<span style="font-size:1rem;">/month</span></div>
+        <ul>
+          <li>Basic Features</li>
+          <li>Community Support</li>
+          <li>Limited Usage</li>
+        </ul>
+        <a href="#" class="btn">Get Started</a>
+      </div>
+      <!-- 专业计划 -->
+      <div class="pricing-card">
+        <h3>Pro</h3>
+        <div class="price">$29<span style="font-size:1rem;">/month</span></div>
+        <ul>
+          <li>All Basic Features</li>
+          <li>Priority Support</li>
+          <li>Advanced Analytics</li>
+          <li>Increased Limits</li>
+        </ul>
+        <a href="#" class="btn">Upgrade Now</a>
+      </div>
+      <!-- 企业计划 -->
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <ul>
+          <li>All Pro Features</li>
+          <li>Dedicated Support</li>
+          <li>Custom Integrations</li>
+          <li>Service Level Agreement</li>
+        </ul>
+        <a href="#" class="btn">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 公共页脚 -->
+  <footer class="footer">
+    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
