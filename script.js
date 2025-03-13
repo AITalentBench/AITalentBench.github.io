@@ -47,28 +47,41 @@ const mapping = {
   "honor_codes": "Honor codes.txt"
 };
 
-/* 加载各模块内容 */
+/* 加载各模块内容，从后端接口获取生成的结果 */
 async function loadContent() {
-  for (const [elemId, fileName] of Object.entries(mapping)) {
-    try {
-      const response = await fetch(`/static/result/${fileName}`);
-      if (!response.ok) {
-        console.warn(`Failed to load ${fileName}: HTTP ${response.status}`);
-        continue;
-      }
-      const text = await response.text();
-      if (elemId === "capsule-title") {
-        const titleElem = document.getElementById(elemId);
-        if (titleElem) titleElem.textContent = text;
-      } else {
-        const sectionElem = document.querySelector(`#${elemId} p`);
-        if (sectionElem) sectionElem.textContent = text;
-      }
-    } catch (error) {
-      console.error(`Error loading ${fileName}:`, error);
+  try {
+    // 调用后端接口获取所有结果数据
+    const response = await fetch('https://aitalentbench-b8395f5c2bf5.herokuapp.com/api/get_results');
+    if (!response.ok) {
+      console.warn(`Failed to load results from backend: HTTP ${response.status}`);
+      return;
     }
+    const data = await response.json();
+    if (data.status !== 'success') {
+      console.error(`Backend error: ${data.message}`);
+      return;
+    }
+    const results = data.results;  // 结果对象的键为文件名，例如 "Title.txt"
+    // 根据 mapping 更新页面中的内容
+    for (const [elemId, fileName] of Object.entries(mapping)) {
+      const content = results[fileName];
+      if (content !== undefined) {
+        if (elemId === "capsule-title") {
+          const titleElem = document.getElementById(elemId);
+          if (titleElem) titleElem.textContent = content;
+        } else {
+          const sectionElem = document.querySelector(`#${elemId} p`);
+          if (sectionElem) sectionElem.textContent = content;
+        }
+      } else {
+        console.warn(`No content found for ${fileName}`);
+      }
+    }
+  } catch (error) {
+    console.error("Error loading content from backend:", error);
   }
 }
+
 
 /* 生成代码并显示 Solution 视图 */
 async function handleGenerateCode() {
@@ -134,20 +147,32 @@ async function handleGenerate() {
 /* 加载代码（用于 Solution 视图） */
 async function loadCode() {
   try {
-    const response = await fetch(`/static/result/code.txt`);
+    // 调用后端接口获取所有生成结果
+    const response = await fetch('https://aitalentbench-b8395f5c2bf5.herokuapp.com/api/get_results');
     if (!response.ok) {
-      console.error(`Failed to load code.txt: HTTP ${response.status}`);
+      console.error(`Failed to load results from backend: HTTP ${response.status}`);
       return;
     }
-    const code = await response.text();
-    const codeElem = document.getElementById("code-example");
-    if (codeElem) {
-      codeElem.textContent = code;
+    const data = await response.json();
+    if (data.status !== 'success') {
+      console.error("Backend error:", data.message);
+      return;
+    }
+    // 从返回的结果中取出 "code.txt" 的内容
+    const codeContent = data.results["code.txt"];
+    if (codeContent) {
+      const codeElem = document.getElementById("code-example");
+      if (codeElem) {
+        codeElem.textContent = codeContent;
+      }
+    } else {
+      console.warn("No code.txt found in backend results.");
     }
   } catch (error) {
-    console.error("Error loading code.txt:", error);
+    console.error("Error loading code:", error);
   }
 }
+
 
 /* 动态加载公司信息（用于 company_detail.html 页面） */
 function loadCompanyInfo() {
