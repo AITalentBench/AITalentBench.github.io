@@ -260,7 +260,7 @@
     
     if (companyId && capsuleId) {
       // 加载 Capsule 的标题（从 title.txt）
-      fetch("companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
+      fetch("companies/" + companyId + "/capsules/" + capsuleId + "/Title.txt")
         .then(response => response.text())
         .then(text => {
           document.getElementById("capsule-title").textContent = text.trim() || "Capsule Title";
@@ -272,18 +272,18 @@
       
       // 定义各个内容模块与对应的文件名
       const sections = {
-        "overview": "overview.txt",
-        "task": "task.txt",
-        "key_dates": "key_dates.txt",
-        "registration": "registration.txt",
-        "prizes": "prizes.txt",
-        "organizers": "organizers.txt",
-        "contact": "contact.txt",
-        "acknowledgement": "acknowledgement.txt",
-        "evaluation_criteria": "evaluation_criteria.txt",
-        "references": "references.txt",
-        "terms_and_conditions": "terms_and_conditions.txt",
-        "honor_codes": "honor_codes.txt"
+        "overview": "Overview.txt",
+        "task": "Task.txt",
+        "key_dates": "Key_dates.txt",
+        "registration": "Registration.txt",
+        "prizes": "Prizes.txt",
+        "organizers": "Organizers.txt",
+        "contact": "Contact.txt",
+        "acknowledgement": "Acknowledgement.txt",
+        "evaluation_criteria": "Evaluation_criteria.txt",
+        "references": "References.txt",
+        "terms_and_conditions": "Terms_and_conditions.txt",
+        "honor_codes": "Honor_codes.txt"
       };
       
       // 遍历每个模块，加载对应文件内容并更新页面
