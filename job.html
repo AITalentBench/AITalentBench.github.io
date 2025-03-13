@@ -146,7 +146,7 @@
 
       // 如果有传入 companyId 和 jobId，则动态加载相应 job_description.txt
       if (companyId && jobId) {
-        const filePath = `/static/companies/${companyId}/jobs/${jobId}/job_description.txt`;
+        const filePath = `companies/${companyId}/jobs/${jobId}/job_description.txt`;
         fetch(filePath)
           .then(response => {
             if (!response.ok) {

@@ -58,8 +58,8 @@
   <nav id="sub-navbar" class="sub-navbar">
     <ul>
       <li><a href="#" onclick="showView('task'); return false;" class="active">Task</a></li>
-      <li><a href="#" onclick="showView('solution'); return false;">Solution</a></li>
-    </ul>
+<!--       <li><a href="#" onclick="showView('solution'); return false;">Solution</a></li>
+ -->    </ul>
   </nav>
 
     
@@ -250,32 +250,75 @@
     });
   </script>
   
-  <!-- 动态加载 Capsule 信息的脚本 -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function(){
-      // 解析 URL 参数，获取 companyId 和 capsuleId
-      const params = new URLSearchParams(window.location.search);
-      const companyId = params.get("companyId") || "";
-      const capsuleId = params.get("capsuleId") || "";
+ <!-- 动态加载 Capsule 信息的脚本 -->
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    // 解析 URL 参数，获取 companyId 和 capsuleId
+    const params = new URLSearchParams(window.location.search);
+    const companyId = params.get("companyId") || "";
+    const capsuleId = params.get("capsuleId") || "";
+    
+    if (companyId && capsuleId) {
+      // 加载 Capsule 的标题（从 title.txt）
+      fetch("companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
+        .then(response => response.text())
+        .then(text => {
+          document.getElementById("capsule-title").textContent = text.trim() || "Capsule Title";
+        })
+        .catch(error => {
+          console.error("Error loading capsule title:", error);
+          document.getElementById("capsule-title").textContent = "Capsule Title";
+        });
       
-      if (companyId && capsuleId) {
-        // 动态加载 Capsule 的标题（从 title.txt）
-        fetch("/static/companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
-          .then(response => response.text())
+      // 定义各个内容模块与对应的文件名
+      const sections = {
+        "overview": "overview.txt",
+        "task": "task.txt",
+        "key_dates": "key_dates.txt",
+        "registration": "registration.txt",
+        "prizes": "prizes.txt",
+        "organizers": "organizers.txt",
+        "contact": "contact.txt",
+        "acknowledgement": "acknowledgement.txt",
+        "evaluation_criteria": "evaluation_criteria.txt",
+        "references": "references.txt",
+        "terms_and_conditions": "terms_and_conditions.txt",
+        "honor_codes": "honor_codes.txt"
+      };
+      
+      // 遍历每个模块，加载对应文件内容并更新页面
+      Object.entries(sections).forEach(([sectionId, fileName]) => {
+        const filePath = "companies/" + companyId + "/capsules/" + capsuleId + "/" + fileName;
+        fetch(filePath)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("HTTP error " + response.status);
+            }
+            return response.text();
+          })
           .then(text => {
-            document.getElementById("capsule-title").textContent = text.trim() || "Capsule Title";
+            // 假设各模块内容显示在对应 article 内的 <p> 标签中
+            const elem = document.querySelector("#" + sectionId + " p");
+            if (elem) {
+              elem.textContent = text.trim() || ("No content for " + sectionId);
+            }
           })
           .catch(error => {
-            console.error("Error loading capsule title:", error);
-            document.getElementById("capsule-title").textContent = "Capsule Title";
+            console.error("Error loading " + fileName + ":", error);
+            const elem = document.querySelector("#" + sectionId + " p");
+            if (elem) {
+              elem.textContent = "No content available.";
+            }
           });
-      } else {
-        document.getElementById("capsule-title").textContent = "Capsule Title";
-      }
-    });
+      });
+    } else {
+      document.getElementById("capsule-title").textContent = "Capsule Title";
+    }
+  });
+</script>
+
   </script>
   
   <!-- 引入外部JavaScript -->
-  <script src="script.js"></script>
 </body>
 </html>

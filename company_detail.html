@@ -214,10 +214,10 @@
           const jobTitleElem = document.getElementById("job-title-" + jobId);
           const jobLinkElem  = document.getElementById("job-link-" + jobId);
           
-          jobImageElem.src = "/static/companies/" + companyId + "/jobs/" + jobId + "/head.webp";
+          jobImageElem.src = "companies/" + companyId + "/jobs/" + jobId + "/head.webp";
           jobLinkElem.href = "job.html?companyId=" + companyId + "&jobId=" + jobId;
           
-          fetch("/static/companies/" + companyId + "/jobs/" + jobId + "/job_description.txt")
+          fetch("companies/" + companyId + "/jobs/" + jobId + "/job_description.txt")
             .then(response => response.text())
             .then(jobText => {
               const lines2 = jobText.split('\n');
@@ -247,10 +247,10 @@
           const capsuleTitleElem = document.getElementById("capsule-title-" + capsuleId);
           const capsuleLinkElem  = document.getElementById("capsule-link-" + capsuleId);
           
-          capsuleImageElem.src = "/static/companies/" + companyId + "/capsules/" + capsuleId + "/head.webp";
+          capsuleImageElem.src = "companies/" + companyId + "/capsules/" + capsuleId + "/head.webp";
           capsuleLinkElem.href = "capsule_detail.html?companyId=" + companyId + "&capsuleId=" + capsuleId;
           
-          fetch("/static/companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
+          fetch("companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
             .then(response => response.text())
             .then(text => {
               capsuleTitleElem.textContent = text.trim() || "Capsule Title";
