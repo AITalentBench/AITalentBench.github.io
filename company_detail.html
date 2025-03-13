@@ -242,33 +242,34 @@
         loadJobInfo(3);
         
         // 定义函数：加载指定 capsule 的信息
-        function loadCapsuleInfo(capsuleId) {
-          const capsuleImageElem = document.getElementById("capsule-image-" + capsuleId);
-          const capsuleTitleElem = document.getElementById("capsule-title-" + capsuleId);
-          const capsuleLinkElem  = document.getElementById("capsule-link-" + capsuleId);
-          
-          capsuleImageElem.src = "companies/" + companyId + "/capsules/" + capsuleId + "/head.webp";
-          capsuleLinkElem.href = "capsule_detail.html?companyId=" + companyId + "&capsuleId=" + capsuleId;
-          
-          fetch("companies/" + companyId + "/capsules/" + capsuleId + "/title.txt")
-            .then(response => response.text())
-            .then(text => {
-              capsuleTitleElem.textContent = text.trim() || "Capsule Title";
-            })
-            .catch(err => {
-              console.error("Error loading capsule title for capsule " + capsuleId + ":", err);
-              capsuleTitleElem.textContent = "Capsule Title";
-            });
-        }
-        
-        // 分别加载 capsule 1, capsule 2, capsule 3
-        loadCapsuleInfo(1);
-        loadCapsuleInfo(2);
-        loadCapsuleInfo(3);
-      } else {
-        // 无传参时设置默认值
-        document.getElementById("company-name").textContent = "Company Name";
-        document.getElementById("company-description").textContent = "Default company profile.";
+function loadCapsuleInfo(capsuleId) {
+  const capsuleImageElem = document.getElementById("capsule-image-" + capsuleId);
+  const capsuleTitleElem = document.getElementById("capsule-title-" + capsuleId);
+  const capsuleLinkElem  = document.getElementById("capsule-link-" + capsuleId);
+  
+  capsuleImageElem.src = "companies/" + companyId + "/capsules/" + capsuleId + "/head.webp";
+  capsuleLinkElem.href = "capsule_detail.html?companyId=" + companyId + "&capsuleId=" + capsuleId;
+  
+  fetch("companies/" + companyId + "/capsules/" + capsuleId + "/Title.txt")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP error " + response.status);
+      }
+      return response.text();
+    })
+    .then(text => {
+      capsuleTitleElem.textContent = text.trim() || "Capsule Title";
+    })
+    .catch(err => {
+      console.error("Error loading capsule title for capsule " + capsuleId + ":", err);
+      capsuleTitleElem.textContent = "Capsule Title";
+    });
+}
+
+// 分别加载 capsule 1, capsule 2, capsule 3
+loadCapsuleInfo(1);
+loadCapsuleInfo(2);
+loadCapsuleInfo(3);
       }
     });
   </script>
