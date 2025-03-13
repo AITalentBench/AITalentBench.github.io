@@ -74,7 +74,7 @@ async function loadContent() {
 async function handleGenerateCode() {
   document.getElementById('code-loading-message').style.display = 'block';
   try {
-    const response = await fetch('https://aitalentbench.herokuapp.com/api/generate_code', {
+    const response = await fetch('https://aitalentbench-b8395f5c2bf5.herokuapp.com/api/generate_code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({})
@@ -107,7 +107,7 @@ async function handleGenerate() {
     return;
   }
   try {
-    const response = await fetch('https://aitalentbench.herokuapp.com/api/generate', {
+    const response = await fetch('https://aitalentbench-b8395f5c2bf5.herokuapp.com/api/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ organization: orgInfo })
