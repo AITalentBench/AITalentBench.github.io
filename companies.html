@@ -85,29 +85,29 @@
   <section class="content-area">
     <h2 class="page-title">Companies Tailored for You</h2>
     <div class="companies-container">
-      <!-- 第一个公司卡片，动态加载 JPMorgan 信息 -->
-      <a href="company_detail.html?id=JPMorgan" class="company-link">
+      <!-- 第一个公司卡片，动态加载 CompanyA 信息 -->
+      <a href="company_detail.html?id=CompanyA" class="company-link">
         <div class="company-card">
-          <img src="companies/JPMorgan/logo.svg" alt="J.P. Morgan Logo" style="height: 150px; object-fit: contain;">
-          <h3 id="company-name-JPMorgan">Loading...</h3>
-          <p id="company-description-JPMorgan">Loading description...</p>
+          <img src="web_component/placeholder.png" alt="" style="height: 150px; object-fit: contain;">
+          <h3 id="company-name-CompanyA">Loading...</h3>
+          <p id="company-description-CompanyA">Loading description...</p>
         </div>
       </a>
       <!-- 其他公司卡片保持原有示例内容 -->
-      <a href="company_detail.html?id=2" class="company-link">
+      <a href="company_detail.html?id=CompanyB" class="company-link">
         <div class="company-card">
-          <img src="companies/Sequoia/logo.png" alt="Sequoia Capital Logo" style="height: 150px; object-fit: contain;">
-          <h3>Sequoia Capital</h3>
-          <p>Sequoia Capital is a renowned venture capital firm that invests in groundbreaking companies
+          <img src="web_component/placeholder.png" alt="CompanyB Logo" style="height: 150px; object-fit: contain;">
+          <h3>Company B</h3>
+          <p>Company B is a renowned venture capital firm that invests in groundbreaking companies
              across various sectors, helping visionary entrepreneurs build iconic businesses that shape
               the future.</p>
         </div>
       </a>
-      <a href="company_detail.html?id=3" class="company-link">
+      <a href="company_detail.html?id=CompanyC" class="company-link">
         <div class="company-card">
-          <img src="companies/AWS/logo.png" alt="Amazon Web Services Logo" style="height: 150px; object-fit: contain;">
-          <h3>Amazon Web Services</h3>
-          <p>Amazon Web Services (AWS) is a comprehensive and widely adopted cloud platform, offering
+          <img src="web_component/placeholder.png" alt="CompanyC Logo" style="height: 150px; object-fit: contain;">
+          <h3>Company C</h3>
+          <p>Company C is a comprehensive and widely adopted cloud platform, offering
              a wide range of services like computing power, storage, and databases, with a focus on 
              scalability and flexibility.</p>
         </div>
@@ -120,13 +120,13 @@
   
   <!-- 公共页脚 -->
   <footer class="footer">
-    <p>© 2025 AITalentBench Website. All rights reserved.</p>
+    <p>© 2025 AITalentBench Website. All rights reserved. This website is in testing; all content is AI-generated and for demonstration only.</p>
   </footer>
   
-  <!-- 动态加载 JPMorgan 信息的脚本 -->
+  <!-- 动态加载 CompanyA 信息的脚本 -->
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      fetch("companies/JPMorgan/description.txt")
+      fetch("companies/CompanyA/description.txt")
         .then(response => response.text())
         .then(text => {
           let name = "";
@@ -141,13 +141,13 @@
               introduction = line.substring(13).trim();
             }
           }
-          document.getElementById("company-name-JPMorgan").textContent = name || "J.P. Morgan";
-          document.getElementById("company-description-JPMorgan").textContent = introduction || "No description available.";
+          document.getElementById("company-name-CompanyA").textContent = name || "CompanyA";
+          document.getElementById("company-description-CompanyA").textContent = introduction || "No description available.";
         })
         .catch(error => {
-          console.error("Error loading JPMorgan description:", error);
-          document.getElementById("company-name-JPMorgan").textContent = "J.P. Morgan";
-          document.getElementById("company-description-JPMorgan").textContent = "Failed to load description.";
+          console.error("Error loading CompanyA description:", error);
+          document.getElementById("company-name-CompanyA").textContent = "CompanyA";
+          document.getElementById("company-description-CompanyA").textContent = "Failed to load description.";
         });
     });
   </script>

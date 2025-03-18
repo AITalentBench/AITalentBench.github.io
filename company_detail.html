@@ -183,7 +183,7 @@
       
       if(companyId) {
         // 更新公司 logo 和描述
-        document.getElementById("company-logo").src = "../companies/" + companyId + "/logo.svg";
+        document.getElementById("company-logo").src = "./companies/" + companyId + "/logo.png";
         fetch("companies/" + companyId + "/description.txt")
           .then(response => response.text())
           .then(text => {

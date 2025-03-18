@@ -182,7 +182,7 @@ function loadCompanyInfo() {
   const companyId = params.get("id") || "";
   if (companyId) {
     // 更新 logo 图片路径
-    document.getElementById("company-logo").src = "companies/" + companyId + "/logo.svg";
+    document.getElementById("company-logo").src = "companies/" + companyId + "/logo.png";
     // 动态加载描述文件
     fetch("companies/" + companyId + "/description.txt")
       .then(response => response.text())

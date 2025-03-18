@@ -1,0 +1,3 @@
+name: Company A
+
+introduction: Company A is a leading global financial services firm with assets of $4 trillion and operations worldwide. The firm serves millions of customers, clients, and communities in over 100 global markets with more than 300,000 employees. 
