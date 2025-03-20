@@ -180,7 +180,7 @@ async function loadCode() {
  */
 function downloadFile(filename) {
   // 构造文件的 URL，假设你的静态文件通过 GitHub Pages 部署后可以通过 /static/result/ 访问
-  const url = `/static/result/${filename}`;
+  const url = `./result/${filename}`;
   // 创建一个临时的 <a> 标签，并模拟点击下载
   const a = document.createElement('a');
   a.href = url;
