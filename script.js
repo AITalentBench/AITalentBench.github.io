@@ -174,6 +174,22 @@ async function loadCode() {
 }
 
 
+/**
+ * 触发下载指定文件的操作
+ * @param {string} filename - 要下载的文件名，例如 "output_code.zip"
+ */
+function downloadFile(filename) {
+  // 构造文件的 URL，假设你的静态文件通过 GitHub Pages 部署后可以通过 /static/result/ 访问
+  const url = `/static/result/${filename}`;
+  // 创建一个临时的 <a> 标签，并模拟点击下载
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
 /* 动态加载公司信息（用于 company_detail.html 页面） */
 function loadCompanyInfo() {
   const companyNameElem = document.getElementById("company-name");
