@@ -110,6 +110,27 @@ async function handleGenerateCode() {
   }
 }
 
+  /* 生成代码并显示 Solution 视图 */
+/* async function handleGenerateCode() {
+  document.getElementById('code-loading-message').style.display = 'block';
+  try {
+    const response = await fetch('web_component/guidance.txt');
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+    const text = await response.text();
+    localStorage.setItem('guidance-example', text);
+    showView('code');
+  } catch (err) {
+    console.error('Error loading guidance:', err);
+    alert('Error loading guidance, please try again later.');
+  } finally {
+    document.getElementById('code-loading-message').style.display = 'none';
+  }
+} */
+
+
+
 /* 生成 Capsule 内容（来自 Create Capsule 视图） */
 async function handleGenerate() {
   document.getElementById('loading-message-generate').style.display = 'block';
@@ -145,7 +166,7 @@ async function handleGenerate() {
 }
 
 /* 加载代码（用于 Solution 视图） */
-async function loadCode() {
+/* async function loadCode() {
   try {
     // 调用后端接口获取所有生成结果
     const response = await fetch('https://aitalentbench-b8395f5c2bf5.herokuapp.com/api/get_results');
@@ -170,6 +191,24 @@ async function loadCode() {
     }
   } catch (error) {
     console.error("Error loading code:", error);
+  }
+} */
+/* 加载代码（用于 Solution 视图） */
+async function loadCode() {
+  try {
+    // 使用相对路径从本地加载 guidance.txt 文件内容
+    const response = await fetch('web_component/guidance.txt');
+    if (!response.ok) {
+      console.error(`Failed to load guidance file: HTTP ${response.status}`);
+      return;
+    }
+    const text = await response.text();
+    const codeElem = document.getElementById("guidance-example");
+    if (codeElem) {
+      codeElem.textContent = text;
+    }
+  } catch (error) {
+    console.error("Error loading guidance file:", error);
   }
 }
 

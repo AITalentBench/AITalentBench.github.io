@@ -1,0 +1,12 @@
+Once the submission is complete, we assess the model performance by computing the following set of test metrics between real and fake data:
+
+Marginal Score [1]: the difference in the marginal distribution between real and fake data across each dimension.
+Covariance Score [1]: the difference in the covariance between real and fake data across each feature dimension.
+Correlation Score [1]: the difference in the correlation between real and fake data across each feature dimension.
+Auto-correlation Score [1]: the difference in the ACF between real and fake data.
+Predictive Score [2]: we train 2 independent post-hoc networks (2 layer-LSTM model) to complete a regression task on the real and fake data respectively, after which we evaluate the post-hoc regression network on real data and the difference Mean Absolute Error is computed.
+Discriminative Score [2]: we train a post-hoc classifier (LSTM model) to distinguish true and fake data. One minus the accuracy of the test set is computed.
+
+For each of these test metrics, the lower the metric is, the better the model's performance is. The final score is obtained by averaging the ranking across all marginal scores. The online evaluation is done on a bi-daily basis. 
+
+Although submissions are stored in an evaluation queue, we recommend participants submit their answers from 9:00 to 12:00 every Monday, Wednesday, and Friday to get immediate feedback. Additionally, the participants can use Starter Kit for the offline evaluation.
