@@ -88,27 +88,27 @@
   </style>
 </head>
 <body>
-  <!-- 公共导航栏 -->
-  <header class="navbar">
-    <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
-      <div class="navbar-brand">
-        <a href="index.html"><img src="static/web_component/mxmlogo.png" alt="AITalentBench Logo"></a>
-      </div>
-      <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
-        <!-- 左侧菜单 -->
-        <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
-          <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
-          <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
-          <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
-        </ul>
-        <!-- 右侧菜单 -->
-        <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
-          <li style="margin-left: 1rem;"><a href="https://eu-west-2kfdagqp3e.auth.eu-west-2.amazoncognito.com/login/continue?client_id=40204jl6io8ohb0vhuoj5apmdg&redirect_uri=https%3A%2F%2Faitalentbench.github.io&response_type=code&scope=email+openid+phone">Log in</a></li>
-          <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
-        </ul>
-      </nav>
+ <!-- 公共导航栏（采用统一更新后的导航栏） -->
+ <header class="navbar">
+  <div class="navbar-container" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="navbar-brand">
+      <a href="index.html">AITalentBench</a>
     </div>
-  </header>
+    <nav class="navbar-menu" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+      <!-- 左侧菜单 -->
+      <ul class="navbar-left" style="display: flex; list-style: none; margin: 0; padding: 0; margin-left: 2rem;">
+        <li style="margin-right: 1rem;"><a href="companies.html">Companies</a></li>
+        <li style="margin-right: 1rem;"><a href="capsules_aitalent.html">Capsules</a></li>
+        <li style="margin-right: 1rem;"><a href="pricing.html">Pricing</a></li>
+      </ul>
+      <!-- 右侧菜单 -->
+      <ul class="navbar-right" style="display: flex; list-style: none; margin: 0; padding: 0;">
+        <li style="margin-left: 1rem;"><a href="https://eu-west-2kfdagqp3e.auth.eu-west-2.amazoncognito.com/login/continue?client_id=40204jl6io8ohb0vhuoj5apmdg&redirect_uri=https%3A%2F%2Faitalentbench.github.io&response_type=code&scope=email+openid+phone">Log in</a></li>
+        <li style="margin-left: 1rem;"><a href="company_portal.html">Company</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
   
   <!-- 主体内容：候选人详情 -->
   <main class="candidate-container">
@@ -116,9 +116,9 @@
     <aside class="candidate-sidebar">
       <h2>Candidate</h2>
       <div class="candidate-info">
-        <strong>Name:</strong> John Doe<br>
-        <strong>Email:</strong> john.doe@example.com<br>
-        <strong>Affiliation:</strong> Durham University<br>
+        <strong>Name:</strong> name holder<br>
+        <strong>Email:</strong> name@example.com<br>
+        <strong>Affiliation:</strong> Organization holder<br>
         <strong>Registered since:</strong> Jan 2025
       </div>
     </aside>
@@ -137,7 +137,7 @@
       
       <!-- Radar / Spider 图表区域（示例占位） -->
       <article class="radar-chart">
-        <img src="https://via.placeholder.com/300x300?text=Radar+Chart" alt="Radar Chart">
+        <img src="./web_component/radar.png" alt="Radar Chart">
       </article>
       
       <!-- Recent Activity 区域 -->
